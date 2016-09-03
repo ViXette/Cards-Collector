@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lgi-9t-BL8">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="Cards_Collector" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +18,128 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TnA-6u-zXr">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TnA-6u-zXr" secondAttribute="bottom" id="5Eb-5z-SLd"/>
+                            <constraint firstAttribute="trailing" secondItem="TnA-6u-zXr" secondAttribute="trailing" id="MLW-Q1-H3p"/>
+                            <constraint firstItem="TnA-6u-zXr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U80-KN-xNx"/>
+                            <constraint firstItem="TnA-6u-zXr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ooJ-c9-A2K"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="tdp-zb-TbH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IN0-AJ-R4R">
+                            <connections>
+                                <segue destination="hCA-nF-e9X" kind="show" identifier="cardSegue" id="5fN-mQ-Aft"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cards_TableView" destination="TnA-6u-zXr" id="XAg-id-2s4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1052" y="763"/>
+        </scene>
+        <!--Card View Controller-->
+        <scene sceneID="Zel-wW-ctb">
+            <objects>
+                <viewController id="hCA-nF-e9X" customClass="CardViewController" customModule="Cards_Collector" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nYT-DO-XMQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="3vG-pI-Yvg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ML3-4W-tUf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Xmw-QC-29v">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="19M-qp-lth"/>
+                                    <constraint firstAttribute="width" constant="280" id="TTb-0r-mOz"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xjq-d9-OUw">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ExY-Lv-pE8">
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="hCA-nF-e9X" eventType="touchUpInside" id="Qhz-v1-eAM"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X8-Iz-hSC">
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteTapped:" destination="hCA-nF-e9X" eventType="touchUpInside" id="Cky-TE-eYX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xjq-d9-OUw" firstAttribute="width" secondItem="Xmw-QC-29v" secondAttribute="width" id="IOZ-NB-Rav"/>
+                            <constraint firstItem="xjq-d9-OUw" firstAttribute="top" secondItem="Xmw-QC-29v" secondAttribute="bottom" constant="20" id="Vql-zh-0do"/>
+                            <constraint firstItem="ExY-Lv-pE8" firstAttribute="top" secondItem="xjq-d9-OUw" secondAttribute="bottom" constant="20" id="YWS-J6-nCW"/>
+                            <constraint firstItem="ExY-Lv-pE8" firstAttribute="centerX" secondItem="ML3-4W-tUf" secondAttribute="centerX" id="YYE-wg-dkA"/>
+                            <constraint firstItem="4X8-Iz-hSC" firstAttribute="top" secondItem="ExY-Lv-pE8" secondAttribute="bottom" constant="15" id="aIY-Ak-kb0"/>
+                            <constraint firstItem="Xmw-QC-29v" firstAttribute="top" secondItem="nYT-DO-XMQ" secondAttribute="bottom" constant="20" id="dWh-Ff-Nxt"/>
+                            <constraint firstItem="xjq-d9-OUw" firstAttribute="centerX" secondItem="ML3-4W-tUf" secondAttribute="centerX" id="em7-Cy-XwV"/>
+                            <constraint firstItem="4X8-Iz-hSC" firstAttribute="centerX" secondItem="ML3-4W-tUf" secondAttribute="centerX" id="g1w-oo-0oi"/>
+                            <constraint firstItem="Xmw-QC-29v" firstAttribute="centerX" secondItem="ML3-4W-tUf" secondAttribute="centerX" id="qi3-bd-EqL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oMo-Eu-MRm">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="6HT-C3-PO3">
+                                <connections>
+                                    <action selector="cameraTapped:" destination="hCA-nF-e9X" id="udS-Kk-A5Q"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Photos" id="pHO-Yd-Dff">
+                                <connections>
+                                    <action selector="photosTapped:" destination="hCA-nF-e9X" id="O37-om-Zz8"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="add_update_Button" destination="ExY-Lv-pE8" id="O2I-eH-Aq6"/>
+                        <outlet property="card_ImageView" destination="Xmw-QC-29v" id="bBD-Gn-kj6"/>
+                        <outlet property="delete_Button" destination="4X8-Iz-hSC" id="UN2-uS-Kex"/>
+                        <outlet property="title_TextField" destination="xjq-d9-OUw" id="2sn-qE-ZML"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7rr-3t-8Gn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801" y="763"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RDF-3h-eUQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lgi-9t-BL8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aNk-3j-Y6R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="aot-eI-NQx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BHb-1k-b7S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="208.80000000000001" y="763.26836581709154"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="1920" height="1080"/>
+    </resources>
 </document>

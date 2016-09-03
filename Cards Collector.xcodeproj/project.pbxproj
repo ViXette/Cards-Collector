@@ -13,6 +13,7 @@
 		F7E6B9371D74D08700C612CF /* Cards_Collector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F7E6B9351D74D08700C612CF /* Cards_Collector.xcdatamodeld */; };
 		F7E6B9391D74D08700C612CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7E6B9381D74D08700C612CF /* Assets.xcassets */; };
 		F7E6B93C1D74D08700C612CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7E6B93A1D74D08700C612CF /* LaunchScreen.storyboard */; };
+		F7E6B9441D74DC8F00C612CF /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E6B9431D74DC8F00C612CF /* CardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F7E6B9381D74D08700C612CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7E6B93B1D74D08700C612CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7E6B93D1D74D08700C612CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7E6B9431D74DC8F00C612CF /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				F7E6B92E1D74D08700C612CF /* AppDelegate.swift */,
 				F7E6B9301D74D08700C612CF /* ViewController.swift */,
 				F7E6B9321D74D08700C612CF /* Main.storyboard */,
+				F7E6B9431D74DC8F00C612CF /* CardViewController.swift */,
 				F7E6B9381D74D08700C612CF /* Assets.xcassets */,
 				F7E6B93A1D74D08700C612CF /* LaunchScreen.storyboard */,
 				F7E6B93D1D74D08700C612CF /* Info.plist */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E6B9441D74DC8F00C612CF /* CardViewController.swift in Sources */,
 				F7E6B9371D74D08700C612CF /* Cards_Collector.xcdatamodeld in Sources */,
 				F7E6B9311D74D08700C612CF /* ViewController.swift in Sources */,
 				F7E6B92F1D74D08700C612CF /* AppDelegate.swift in Sources */,
